@@ -962,7 +962,7 @@ li {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     border: solid 1px var(--c-secondary);
     border-radius: 10px;
-    max-width: 950px;
+    max-width: 1200px;
     margin: 5rem auto 3rem;
 }
 
@@ -970,6 +970,7 @@ li {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
 }
 
 .ci-label {
@@ -991,6 +992,7 @@ li {
     text-transform: uppercase;
     font-weight: 400;
     outline: none;
+    width: 100%;
 }
 
 .form-title {
@@ -1000,12 +1002,21 @@ li {
     margin-bottom: 3rem;
 }
 
+.ci-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
 .ci-form__btn {
     background-color: var(--c-primary);
     border: solid 2px var(--c-primary);
     color: white;
     padding: 1rem 2rem;
-    margin: 4rem auto 0;
+    max-width: 200px;
     display: flex;
     font-size: 1rem;
     gap: 0.5rem;
@@ -1014,12 +1025,66 @@ li {
     text-transform: uppercase;
     cursor: pointer;
     transition: 500ms;
+    text-decoration: none;
+}
+
+.form-options,
+.ci-form input[type=radio] {
+    width: unset;
 }
 
 .ci-form__btn:hover {
     background-color: white;
     color: var(--c-primary);
 }
+
+.ci-form__row input[type=file] {
+    color: transparent;
+    min-height: 300px;
+    height: auto;
+    border: solid 1px var(--c-secondary);
+    position: relative;
+}
+
+.ci-form__row .fa-cloud-arrow-up {
+    font-size: 45px;
+    color: var(--c-primary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 500ms;
+}
+
+.ci-form__row:hover>.fa-cloud-arrow-up {
+    opacity: 0.6;
+}
+
+.ci-form ::file-selector-button {
+    display: none;
+}
+
+.cb-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.cb-container .ci-label {
+    font-weight: 400;
+}
+
+.--span-2 {
+    grid-column: span 2;
+}
+
+#cb-btn {
+    accent-color: var(--c-primary);
+    transform: scale(1.5);
+    width: unset !important;
+    margin: 0 1rem;
+}
+
 
 /* contact page */
 
@@ -1270,6 +1335,10 @@ li {
 }
 
 @media only screen and (max-width: 567px) {
+    .ci-btns {
+        flex-direction: column;
+    }
+
     .product-2__grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1307,6 +1376,18 @@ li {
 
     .form-title {
         font-size: 1.5rem;
+    }
+
+    .form-stages {
+        gap: 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 399px) {
+
+    .form-stages:before {
+        display: none;
     }
 
 }
